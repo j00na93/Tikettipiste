@@ -13,7 +13,11 @@
 
   function haeTapahtumatMusiikki() {
     return DB::run('SELECT * FROM tapahtumat WHERE category_id = 1 ORDER BY tap_alkaa;')->fetchAll();
+    
+  }
 
+    function haeTapahtuma($id) {
+    return DB::run('SELECT * FROM tapahtumat WHERE idtapahtuma = ?;',[$id])->fetch();
   }
 
 ?>

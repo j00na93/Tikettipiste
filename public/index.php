@@ -25,7 +25,16 @@ require_once '../src/init.php';
     require_once MODEL_DIR . 'tapahtuma.php';
      $tapahtumat = haeTapahtumatMusiikki();
      echo $templates->render('musiikki',['tapahtumat' => $tapahtumat]);
-  } else {
+  }
+     else if ($request === '/tapahtuma') {
+    require_once MODEL_DIR . 'tapahtuma.php';
+    $tapahtuma = haeTapahtuma($_GET['id']);
+    if ($tapahtuma) {
+      echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
+    } else {
+      echo $templates->render('tapahtumanotfound');
+    }
+  }  else {
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
   }
 
