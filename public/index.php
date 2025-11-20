@@ -16,10 +16,15 @@ require_once '../src/init.php';
   if ($request === '/') {
     echo $templates->render('etusivu');
   }
-  else if ($request === '/' || $request === '/urheilu') {
-    echo $templates->render('urheilu');
+  else if ($request === '/urheilu') {
+    require_once MODEL_DIR . 'tapahtuma.php';
+    $tapahtumat = haeTapahtumatUrheilu();
+    echo $templates->render('urheilu',['tapahtumat' => $tapahtumat]);
+    
   } else if ($request === '/musiikki') {
-     echo $templates->render('musiikki');
+    require_once MODEL_DIR . 'tapahtuma.php';
+     $tapahtumat = haeTapahtumatMusiikki();
+     echo $templates->render('musiikki',['tapahtumat' => $tapahtumat]);
   } else {
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
   }
