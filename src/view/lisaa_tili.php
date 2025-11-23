@@ -1,7 +1,7 @@
 <?php $this->layout('template', ['title' => 'Uuden tilin luonti']) ?>
 
-<h1>Uuden tilin luonti</h1>
-
+<h1 id="signup_header">Uuden tilin luonti</h1>
+<div class="signup_form">
 <form action="" method="POST">
   <div>
     <label for="nimi">Nimi:</label>
@@ -27,3 +27,4 @@
     <input type="submit" name="laheta" value="Luo tili">
   </div>
 </form>
+</div>
