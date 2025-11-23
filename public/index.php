@@ -13,31 +13,35 @@ require_once '../src/init.php';
 
   // Selvitetään mitä sivua on kutsuttu ja suoritetaan sivua vastaava 
   // käsittelijä.
-  if ($request === '/') {
-    echo $templates->render('etusivu');
-  }
-  else if ($request === '/urheilu') {
-    require_once MODEL_DIR . 'tapahtuma.php';
-    $tapahtumat = haeTapahtumatUrheilu();
-    echo $templates->render('urheilu',['tapahtumat' => $tapahtumat]);
-    
-  } else if ($request === '/musiikki') {
-    require_once MODEL_DIR . 'tapahtuma.php';
-     $tapahtumat = haeTapahtumatMusiikki();
-     echo $templates->render('musiikki',['tapahtumat' => $tapahtumat,]);
-  }
-     else if ($request === '/tapahtuma') {
-    require_once MODEL_DIR . 'tapahtuma.php';
-    $tapahtuma = haeTapahtuma($_GET['id']);
-    if ($tapahtuma) {
-      echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
-    } else {
+    switch($request) {
+    case '/':
+    case '/tapahtumat':
+      echo $templates->render('etusivu');
+      break;
+    case '/urheilu':
+      require_once MODEL_DIR . 'tapahtuma.php';
+      $tapahtumat = haeTapahtumatUrheilu();
+      echo $templates->render('urheilu',['tapahtumat' => $tapahtumat]);
+      break;
+    case '/musiikki':
+      require_once MODEL_DIR . 'tapahtuma.php';
+      $tapahtumat = haeTapahtumatMusiikki();
+      echo $templates->render('musiikki',['tapahtumat' => $tapahtumat,]);
+      break; 
+    case '/tapahtuma':
+      require_once MODEL_DIR . 'tapahtuma.php';
+      $tapahtuma = haeTapahtuma($_GET['id']);
+      if ($tapahtuma) {
+         echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
+      } else {
       echo $templates->render('tapahtumanotfound');
     }
-  }  else if ($request === '/lisaa_tili') {
-    echo $templates->render('lisaa_tili');
-  } else {
+      break;
+    case '/lisaa_tili':
+      echo $templates->render('lisaa_tili');
+      break;
+  default:
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
-  }
+    }
 
 ?> 
