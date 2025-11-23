@@ -34,7 +34,9 @@ require_once '../src/init.php';
     } else {
       echo $templates->render('tapahtumanotfound');
     }
-  }  else {
+  }  else if ($request === '/lisaa_tili') {
+    echo $templates->render('lisaa_tili');
+  } else {
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
   }
 
