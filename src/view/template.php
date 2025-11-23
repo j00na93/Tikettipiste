@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="fi">
   <head>
+    <link href="styles/styles.css" rel="stylesheet">
     <title>Tikettipiste - <?=$this->e($title)?></title>
     <meta charset="UTF-8">    
   </head>
   <body>
     <header>
-      <h1>Tikettipiste</h1>
+      <div class="ylatunniste">
+        <div class="tunniste_painikkeet" id="logo"><h1><a href="<?=BASEURL?>">Tikettipiste</a></h1></div>
+        <div class="tunniste_painikkeet"><h1><a href="<?=BASEURL?>/musiikki">Musiikki</a></h1></div>
+        <div class="tunniste_painikkeet"><h1><a href="<?=BASEURL?>/urheilu">Urheilu</a></h1></div>
+
+
+      </div>
     </header>
-    <section>
+    <section class="main">
       <?=$this->section('content')?>
     </section>
     <footer>

@@ -8,7 +8,7 @@
        "host" => "localhost"
     ),
     "urls" => array(
-        "baseUrl" => "/~p43849/lanify"
+        "baseUrl" => "/~p43849/tikettipiste"
     )
   );
 
@@ -17,5 +17,8 @@
   define("TEMPLATE_DIR", PROJECT_ROOT . "src/view/");
   define("MODEL_DIR", PROJECT_ROOT . "src/model/");
   define("CONTROLLER_DIR", PROJECT_ROOT . "src/controller/");
+  define("IMG_DIR", PROJECT_ROOT . "public/images/");
+  define("BASEURL", $config['urls']['baseUrl']);
+
 
 ?>

@@ -24,7 +24,7 @@ require_once '../src/init.php';
   } else if ($request === '/musiikki') {
     require_once MODEL_DIR . 'tapahtuma.php';
      $tapahtumat = haeTapahtumatMusiikki();
-     echo $templates->render('musiikki',['tapahtumat' => $tapahtumat]);
+     echo $templates->render('musiikki',['tapahtumat' => $tapahtumat,]);
   }
      else if ($request === '/tapahtuma') {
     require_once MODEL_DIR . 'tapahtuma.php';
