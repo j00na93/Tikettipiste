@@ -38,8 +38,16 @@ require_once '../src/init.php';
     }
       break;
     case '/lisaa_tili':
-      echo $templates->render('lisaa_tili');
-      break;
+      if (isset($_POST['laheta'])) {
+        require_once MODEL_DIR . 'henkilo.php';
+        $salasana = password_hash($_POST['salasana1'], PASSWORD_DEFAULT);
+        $id = lisaaHenkilo($_POST['nimi'],$_POST['email'],$_POST['puhnro'],$salasana);
+        echo "Tili on luotu tunnisteella $id";
+        break;
+      } else {
+        echo $templates->render('lisaa_tili');
+        break;
+      } 
   default:
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
     }
