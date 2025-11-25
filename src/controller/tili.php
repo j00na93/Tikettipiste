@@ -42,6 +42,10 @@ if (!preg_match("/^(?:\+358|0)\s?\d[\d\s-]{4,12}$/", $formdata['puh'])) {
   } else {
     if (!filter_var($formdata['email'], FILTER_VALIDATE_EMAIL)) {
       $error['email'] = "Sähköpostiosoite on virheellisessä muodossa.";
+    } else {
+      if (haeHenkiloSahkopostilla($formdata['email'])) {
+        $error['email'] = "Sähköpostiosoite on jo käytössä.";
+      }
     }
   }
 

@@ -6,5 +6,8 @@
     DB::run('INSERT INTO kayttaja (nimi, email, puhnro, salasana) VALUE  (?,?,?,?);',[$nimi,$email,$puhnro,$salasana]);
     return DB::lastInsertId();
   }
+    function haeHenkiloSahkopostilla($email) {
+    return DB::run('SELECT * FROM kayttaja WHERE email = ?;', [$email])->fetchAll();
+  }
 
 ?>
