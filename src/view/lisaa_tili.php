@@ -1,30 +1,33 @@
 <?php $this->layout('template', ['title' => 'Uuden tilin luonti']) ?>
 
-<h1 id="signup_header">Uuden tilin luonti</h1>
-<div class="signup_form">
+<h1>Uuden tilin luonti</h1>
+
 <form action="" method="POST">
   <div>
     <label for="nimi">Nimi:</label>
-    <input id="nimi" type="text" name="nimi">
+    <input id="nimi" type="text" name="nimi" value="<?= getValue($formdata,'nimi') ?>">
+    <div class="error"><?= getValue($error,'nimi'); ?></div>
   </div>
   <div>
     <label for="email">Sähköposti:</label>
-    <input id="email" type="email" name="email">
+    <input type="text" name="email" value="<?= getValue($formdata,'email') ?>">
+    <div class="error"><?= getValue($error,'email'); ?></div>
   </div>
-    <div>
-    <label for="puhnro">Puhelinnumero:</label>
-    <input id="puhnro" type="tel" name="puhnro">
+  <div>
+    <label for="puh">Puhelinnumero:</label>
+    <input type="tel" name="puh" value="<?= getValue($formdata,'discord')?>">
+    <div class="error"><?= getValue($error,'puh'); ?></div>
   </div>
   <div>
     <label for="salasana1">Salasana:</label>
-    <input id="salasana1" type="password" name="salasana1">
+    <input type="password" name="salasana1">
+    <div class="error"><?= getValue($error,'salasana'); ?></div>
   </div>
   <div>
     <label for="salasana2">Salasana uudelleen:</label>
-    <input id="salasana2" type="password" name="salasana2">
+    <input type="password" name="salasana2">
   </div>
   <div>
     <input type="submit" name="laheta" value="Luo tili">
   </div>
 </form>
-</div>
