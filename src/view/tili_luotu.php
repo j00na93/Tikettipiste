@@ -7,4 +7,4 @@ tiliäsi. Sinulle on lähetetty sähköpostiisi (<b><?= getValue($formdata,'emai
 vahvistusviesti. Ole hyvä ja käy vahvistamassa sähköpostiosoitteesi klikkaamalla
 viestissä olevaa linkkiä.</p>
 </div>
-<a id="kirjaudu_painike" href="kirjaudu.php">Kirjaudu sisään -></a>
+<a id="kirjaudu_painike" href="/~p43849/tikettipiste/kirjaudu">Kirjaudu sisään →</a>
