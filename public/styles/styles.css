@@ -204,3 +204,34 @@ input[type=submit] {
 .info a {
   color: #e5e4e4;
 }
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 1rem;
+    
+}
+
+.navbar a {
+    padding: 15px;
+    border: 1px #2b2b2b solid;
+    color: rgb(7, 6, 6);
+    text-decoration: none;
+
+}
+
+.navbar a:hover {
+    background-color: #404040;
+}
+.navbar li:last-child {
+    margin-left: auto;
+}
+
+.profile {
+    float: right;
+}
+
+#kirjaudu_ulos{
+    margin-left: 1rem;
+}

@@ -7,13 +7,24 @@
   </head>
   <body>
     <header>
-      <div class="ylatunniste">
-        <div class="tunniste_painikkeet" id="logo"><h1><a href="<?=BASEURL?>">Tikettipiste</a></h1></div>
-        <div class="tunniste_painikkeet"><h1><a href="<?=BASEURL?>/musiikki">Musiikki</a></h1></div>
-        <div class="tunniste_painikkeet"><h1><a href="<?=BASEURL?>/urheilu">Urheilu</a></h1></div>
-
-
+      <div class="navbar">
+        <ul>
+          <li><a href="<?=BASEURL?>">Tikettipiste</a></li>
+          <li><a href="<?=BASEURL?>/musiikki">Musiikki</a></li>
+          <li><a href="<?=BASEURL?>/urheilu">Urheilu</a></li>
+          <li>            <div class="profile">
+        <?php
+          if (isset($_SESSION['user'])) {
+            echo "<div>$_SESSION[user]";
+            echo "<a id='kirjaudu_ulos' href='logout'>Kirjaudu ulos</a></div>";
+          } else {
+            echo "<div><a href='kirjaudu'>Kirjaudu</a></div>";
+          }
+        ?></li></div>
+      
+        </ul>
       </div>
+
     </header>
     <section class="main">
       <?=$this->section('content')?>
