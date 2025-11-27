@@ -66,6 +66,11 @@ require_once '../src/init.php';
         echo $templates->render('kirjaudu', [ 'error' => []]);
       }
       break;
+    case "/logout":
+      require_once CONTROLLER_DIR . 'kirjaudu.php';
+      logout();
+      header("Location: " . $config['urls']['baseUrl']);
+      break;  
       
   default:
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
