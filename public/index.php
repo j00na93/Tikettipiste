@@ -57,8 +57,10 @@ require_once '../src/init.php';
       if (isset($_POST['laheta'])) {
         require_once CONTROLLER_DIR . 'kirjaudu.php';
         if (tarkistaKirjautuminen($_POST['email'],$_POST['salasana'])) {
-           $_SESSION['user'] = $_POST['email'];
-           header("Location: " . $config['urls']['baseUrl']);
+          $_SESSION=array();
+          session_regenerate_id(TRUE);
+          $_SESSION['user'] = $_POST['email'];
+          header("Location: " . $config['urls']['baseUrl']);
         } else {
           echo $templates->render('kirjaudu', [ 'error' => ['virhe' => 'Väärä käyttäjätunnus tai salasana!']]);
         }
