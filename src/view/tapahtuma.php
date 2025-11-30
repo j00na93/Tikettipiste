@@ -15,3 +15,12 @@ $this->layout('template', ['title' => $tapahtuma['nimi']]) ?>
 <div>Alkaa: <?=$start->format('j.n.Y G:i')?></div>
 <div>Loppuu: <?=$end->format('j.n.Y G:i')?></div>
 <div>Lippujen myynti: <?=$saleStart->format('j.n.Y') . "-" . $saleEnd->format('j.n.Y')?></div>
+
+<form action=<?=BASEURL . "/tilaa" ?>  method="post">
+
+  <input type="hidden" name ="idtapahtuma" value ="<?=$tapahtuma['idtapahtuma']?>">
+  <label for= "maara">määrä</label>
+  <input type="number" name="maara" min="1" required>
+  <button type="submit">Tilaa</button>
+
+</form>

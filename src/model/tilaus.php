@@ -3,20 +3,20 @@
   require_once HELPERS_DIR . 'DB.php';
 
 
-function luoTilaus($henkilo_id){
-    DB::run('INSERT INTO tilaukset (henkilo_id) VALUES (?)',
-    [$henkilo_id] );
+function luoTilaus($henkilo_id, $tapahtuma_id){
+    DB::run('INSERT INTO tilaukset (henkilo_id, tapahtuma_id) VALUES (?,?)',
+    [$henkilo_id,$tapahtuma_id] );
     return DB::lastInsertid();
 }
 
   function lisaaTilausRivi($tilaus_id,$tapahtuma_id,$maara) {
     DB::run('INSERT INTO tilausrivit (tilaus_id, tapahtuma_id, maara) VALUES (?,?,?)',
-            [$idtilaus, $idtapahtuma,$maara]);
+            [$tilaus_id, $tapahtuma_id,$maara]);
     return DB::lastInsertId();
   }
 
 
-function paivitaVarasto($tapahtuma_id,$maara) {
+function paivitaVarasto($maara,$idtapahtuma) {
     DB::run('UPDATE tapahtumat SET varasto = varasto - ?
     WHERE idtapahtuma = ?',
     [$maara,$idtapahtuma] );
