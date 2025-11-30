@@ -80,10 +80,27 @@ require_once '../src/init.php';
       require_once CONTROLLER_DIR . 'kirjaudu.php';
       logout();
       header("Location: " . $config['urls']['baseUrl']);
-      break;  
+      break;
+    case "/tilaa":
+      
+      require_once MODEL_DIR . 'tilaus.php';
+
+      // luodaan tilaus
+      $tilaus_id = luoTilaus($loggeduser['idhenkilo'], $_POST['idtapahtuma']);
+      //lisätään tilausrivi
+      lisaaTilausRivi($tilaus_id, $_POST['idtapahtuma'], $_POST['maara']);
+      //päivitetään
+      paivitaVarasto($_POST['maara'], $_POST['idtapahtuma']);
+
+      echo $templates->render('tilaus_valmis', ['tilaus_id' => $tilaus_id,
+                                                'maara' => $_POST['maara'],
+                                                'tapahtuma' => $_POST['idtapahtuma']]);
+      break;
+      
+      
       
   default:
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
     }
-
+    
 ?> 
