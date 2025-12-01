@@ -118,6 +118,7 @@ if (!preg_match("/^(?:\+358|0)\s?\d[\d\s-]{4,12}$/", $formdata['puh'])) {
           "data"   => $formdata
         ];
       }
+    }  
     } else {
 
 
@@ -131,7 +132,8 @@ if (!preg_match("/^(?:\+358|0)\s?\d[\d\s-]{4,12}$/", $formdata['puh'])) {
   }
 }
 
-}
+
+
 
 function lahetaVahvavain($email,$url) {
   $message = "Hei!\n\n" . 
