@@ -235,3 +235,19 @@ input[type=submit] {
 #kirjaudu_ulos{
     margin-left: 1rem;
 }
+
+
+#kirjaudu_aktivoitu{
+    text-align: center;
+    display: block;
+    padding: 14px 14px;
+    color: #b3b3b3;
+    background-color: #534b4b;
+    margin: 2em auto 0 auto;
+    width: fit-content;
+    text-decoration: none; 
+}
+
+.tili_aktivoitu {
+    text-align: center;
+}
