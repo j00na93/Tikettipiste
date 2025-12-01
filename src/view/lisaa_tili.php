@@ -28,6 +28,6 @@
     <input type="password" name="salasana2">
   </div>
   <div>
-    <input type="submit" name="laheta" value="Luo tili">
+    <input type="submit" name="laheta" value"tilaa">
   </div>
 </form>

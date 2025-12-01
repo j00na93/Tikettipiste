@@ -50,7 +50,8 @@ require_once '../src/init.php';
       if (isset($_POST['laheta'])) {
         $formdata = cleanArrayData($_POST);
         require_once CONTROLLER_DIR . 'tili.php';
-        $tulos = lisaaTili($formdata);
+        $tulos = lisaaTili($formdata,$config['urls']['baseUrl']);
+
         if ($tulos['status'] == "200") {
            echo $templates->render('tili_luotu', ['formdata' => $formdata]);
           break;
@@ -102,5 +103,5 @@ require_once '../src/init.php';
   default:
     echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
     }
-    
-?> 
+
+?>
