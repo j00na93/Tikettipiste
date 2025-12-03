@@ -17,6 +17,9 @@
           if (isset($_SESSION['user'])) {
             echo "<div>$_SESSION[user]";
             echo "<a id='kirjaudu_ulos' href='logout'>Kirjaudu ulos</a></div>";
+            if (isset($_SESSION['admin']) && $_SESSION['admin']) {
+              echo "<div><a href='admin'>Ylläpitosivut</a></div>";  
+            }      
           } else {
             echo "<div><a href='kirjaudu'>Kirjaudu</a></div>";
           }
