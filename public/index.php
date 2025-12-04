@@ -197,12 +197,41 @@ case "/kirjaudu":
 
       break;
     case (bool)preg_match('/\/admin.*/', $request):
-      if ($loggeduser["admin"]) {
-        echo "ylläpitosivut";
-        } else {
-          echo $templates->render('admin_ei_oikeuksia');
+      if (!$loggeduser["admin"]) {
+        echo $templates->render('admin_ei_oikeuksia');
+        break;
+        }
+        
+       if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["lisaaTapahtuma"])) {
+            require_once MODEL_DIR . 'tapahtuma.php';
+            $tapAlkaa  = formatDateTimeLocal($_POST["tap_alkaa"]);
+            $tapLoppuu  = formatDateTimeLocal($_POST["tap_loppuu"]);
+            $mAlkaa  = formatDateTimeLocal($_POST["myynti_alkaa"]);
+            $mLoppuu  = formatDateTimeLocal($_POST["myynti_loppuu"]);
+            
+            // kutsutaan funktio
+
+            lisaaTapahtuma(
+            $_POST["nimi"],
+            $_POST["genre"],
+            $_POST["category"],
+            $_POST["paikkakunta"],
+            $tapAlkaa,
+            $tapLoppuu,
+            $mAlkaa,
+            $mLoppuu,
+            $_POST["hinta"],
+            $_POST["varasto"],
+            $_POST["kuvaus"]
+            );
+
+            echo $templates->render('tapahtuma_lisatty');
+            break;
       }
-      break;    
+
+        echo $templates->render('yllapitosivut');
+        break;
+          
 
       
       

@@ -252,3 +252,23 @@ input[type=submit] {
 .tili_aktivoitu {
     text-align: center;
 }
+
+.lisaaTapahtuma {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 1.2rem 2rem;
+     min-width: 550px;
+     margin: 2rem auto;
+       
+}
+
+.lisaaTapahtuma input,  
+.lisaaTapahtuma textarea {
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 8px;
+}
+.lisaaTapahtuma input[type=submit] {
+    width: 5rem;
+    height: 3rem;
+}
