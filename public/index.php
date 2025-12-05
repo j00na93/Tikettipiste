@@ -25,7 +25,11 @@ require_once '../src/init.php';
     switch($request) {
     case '/':
     case '/tapahtumat':
-      echo $templates->render('etusivu');
+      require_once MODEL_DIR . 'tapahtuma.php';
+      $suositutTapahtumat = suositutTapahtumat();
+      $uudetTapahtumat = uudetTapahtumat();
+      echo $templates->render('etusivu',['uudetTapahtumat' => $uudetTapahtumat,
+                                        'suositutTapahtumat' => $suositutTapahtumat]);
       break;
     case '/urheilu':
       require_once MODEL_DIR . 'tapahtuma.php';
@@ -222,6 +226,7 @@ case "/kirjaudu":
             $mLoppuu,
             $_POST["hinta"],
             $_POST["varasto"],
+            $_POST["alkuvarasto"],
             $_POST["kuvaus"]
             );
 

@@ -46,6 +46,10 @@
             <input type="number" name="varasto">
         </div>
         <div>    
+            <label for="alkuvarasto">Alkuvarasto: </label>
+            <input type="number" name="alkuvarasto">
+        </div>
+        <div>    
             <label for ="kuvaus"> Kuvaus: </label>
             <textarea name="kuvaus" rows="4"></textarea>
         </div>    

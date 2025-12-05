@@ -85,29 +85,7 @@ footer {
     max-width: 100%;
 }
 
-.etusivu_alaosa {
-    width: 100%;
-    height: 35vh;
-    display: flex;
 
-}
-
- #vasen, #oikea {
-    width: 50%;
-    max-height: 100%;
-     border: 2px black solid;
-     background-color: #b3b3b3;
-     
-}
-
-#vasen h2 {
-    text-align: center;
-}
-
-#oikea h2 {
-     text-align: center;
-
-}
 /* tapahtumien fontit */
 .font_metal{
     font-family:'Metal Mania', cursive;
@@ -271,4 +249,41 @@ input[type=submit] {
 .lisaaTapahtuma input[type=submit] {
     width: 5rem;
     height: 3rem;
+}
+
+/* Etusivun alaosan määritykset */
+
+.etusivu_alaosa {
+    width: 100%;
+    height: 35vh;
+    display: flex;
+
+}
+
+ #vasen, #oikea {
+    width: 50%;
+    max-height: 100%;
+     border: 2px black solid;
+     background-color: #b3b3b3;
+     
+}
+
+.etusivu_alaosa h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.uudetTapahtumat, .suositutTapahtumat {
+    max-height: 9vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.uudetTapahtumat p, .suositutTapahtumat p {
+    font-size: 1.4rem;
 }
