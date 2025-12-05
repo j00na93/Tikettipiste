@@ -43,9 +43,20 @@ require_once '../src/init.php';
       break; 
     case '/tapahtuma':
       require_once MODEL_DIR . 'tapahtuma.php';
+      require_once MODEL_DIR . 'tilaus.php';
       $tapahtuma = haeTapahtuma($_GET['id']);
+      $varastoaJaljella = varastoaJaljella($_GET['id']);
+      
+
+      if ($varastoaJaljella == 0) {
+        $saatavuusluokka = "loppu";  
+      } elseif ($varastoaJaljella < 0.25) {
+        $saatavuusluokka = "vahissa";
+      } else {$saatavuusluokka = "paljon";}
+      
       if ($tapahtuma) {
-         echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
+         echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma,
+                                              'saatavuusluokka' => $saatavuusluokka]);
       } else {
       echo $templates->render('tapahtumanotfound');
     }

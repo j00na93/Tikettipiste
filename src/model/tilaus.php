@@ -21,3 +21,10 @@ function paivitaVarasto($maara,$idtapahtuma) {
     WHERE idtapahtuma = ?',
     [$maara,$idtapahtuma] );
 }
+
+function varastoaJaljella($tapahtuma_id) {
+  $tulos = DB::run('SELECT varasto / alkuvarasto AS osuus FROM tapahtumat
+  WHERE idtapahtuma = ?;',[$tapahtuma_id])->fetch();
+  return $tulos['osuus'];
+}
+

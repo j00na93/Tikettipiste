@@ -8,19 +8,21 @@ $this->layout('template', ['title' => $tapahtuma['nimi']]) ?>
   $saleStart = new DateTime($tapahtuma['myynti_alkaa']);
   $saleEnd = new DateTime($tapahtuma['myynti_loppuu']);
 ?>
+<div class="tapahtumanTiedot">
+<h2><?=$tapahtuma['nimi']?></h2>
+<div><p>Paikkakunta: <?=$tapahtuma['paikkakunta']?></p></div><br>
+<div><p><?=nl2br($tapahtuma['kuvaus'])?></p></div><br>
+<div><p>Alkaa: <?=$start->format('j.n.Y G:i')?></p></div>
+<div><p>Loppuu: <?=$end->format('j.n.Y G:i')?></p></div>
+<div><p>Lippujen myynti: <?=$saleStart->format('j.n.Y') . "-" . $saleEnd->format('j.n.Y')?></p></div>
+</div>
 
-<h1><?=$tapahtuma['nimi']?></h1>
-<div>Paikkakunta: <?=$tapahtuma['paikkakunta']?></div><br>
-<div><?=nl2br($tapahtuma['kuvaus'])?></div><br>
-<div>Alkaa: <?=$start->format('j.n.Y G:i')?></div>
-<div>Loppuu: <?=$end->format('j.n.Y G:i')?></div>
-<div>Lippujen myynti: <?=$saleStart->format('j.n.Y') . "-" . $saleEnd->format('j.n.Y')?></div>
-
-<form action=<?=BASEURL . "/tilaa"?> method="post">
+<form class="ostoTiedot" action=<?=BASEURL . "/tilaa"?> method="post">
   <input type="hidden" name="idtapahtuma" value="<?=$tapahtuma['idtapahtuma']?>">
 
   <label for="maara">Määrä</label>
   <input type="number" name="maara" min="1" required>
 
   <button type="submit">Tilaa</button>
+  <span class="<?=$saatavuusluokka?>"></span>
 </form>

@@ -89,12 +89,10 @@ footer {
 /* tapahtumien fontit */
 .font_metal{
     font-family:'Metal Mania', cursive;
-    background-color: #d4d4d4;
 }
 
 .font_default{
     font-family: 'Inter', sans-serif;
-    background-color: #d4d4d4;
 }
 
 .tapahtuma h2 {
@@ -286,4 +284,52 @@ input[type=submit] {
 
 .uudetTapahtumat p, .suositutTapahtumat p {
     font-size: 1.4rem;
+}
+
+/* lippujen saatavuuden määrityspallo */
+.paljon {
+  height: 15px;
+  width: 15px;
+  background-color: #08b617;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 0.2rem;
+  
+}
+
+.vahissa {
+  height: 15px;
+  width: 15px;
+  background-color: hsl(59, 92%, 54%);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 0.2rem;
+}
+
+.loppu {
+  height: 15px;
+  width: 15px;
+  background-color: #f80e06;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 0.2rem;
+}
+
+.tapahtumanTiedot {
+    height: 30vh;
+}
+/* yksittäisen tapahtuman tiedot */
+.tapahtumanTiedot h2 {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+.tapahtumanTiedot p {
+    font-size: 1.3rem;
+}
+
+.ostoTiedot button {
+    height:1.5rem;
+    width:4rem;
+    border-radius: 3px;
 }
