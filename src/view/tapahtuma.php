@@ -26,3 +26,4 @@ $this->layout('template', ['title' => $tapahtuma['nimi']]) ?>
   <button type="submit">Tilaa</button>
   <span class="<?=$saatavuusluokka?>"></span>
 </form>
+  <div class="error"><?= getValue($error,'maara'); ?></div>

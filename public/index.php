@@ -56,7 +56,8 @@ require_once '../src/init.php';
       
       if ($tapahtuma) {
          echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma,
-                                              'saatavuusluokka' => $saatavuusluokka]);
+                                              'saatavuusluokka' => $saatavuusluokka,
+                                              'error' => []]);
       } else {
       echo $templates->render('tapahtumanotfound');
     }
@@ -106,6 +107,24 @@ case "/kirjaudu":
     case "/tilaa":
       
       require_once MODEL_DIR . 'tilaus.php';
+      require_once MODEL_DIR . 'tapahtuma.php';
+
+      // tarkastetaan riittävä varastotilanne 
+
+      $varasto = varastotilanne($_POST['idtapahtuma']);
+      $error = [];
+
+      if ($_POST['maara'] > $varasto){
+        $error ['maara'] = "lippuja ei ole tarpeeksi";
+      }
+      if ($error) {
+         $tapahtuma = haeTapahtuma($_POST['idtapahtuma']);
+        echo $templates->render('tapahtuma', [
+                               'tapahtuma' => $tapahtuma,
+                                'error' => $error]);
+        break;
+      }
+
 
       // luodaan tilaus
       $tilaus_id = luoTilaus($loggeduser['idhenkilo'], $_POST['idtapahtuma']);

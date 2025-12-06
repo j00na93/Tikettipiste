@@ -28,3 +28,9 @@ function varastoaJaljella($tapahtuma_id) {
   return $tulos['osuus'];
 }
 
+function varastotilanne ($tapahtuma_id) {
+  $tulos = DB::run('SELECT varasto FROM tapahtumat WHERE idtapahtuma = ?;', [$tapahtuma_id])->fetch();
+  return $tulos['varasto'];
+
+}
+
