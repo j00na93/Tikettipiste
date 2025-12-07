@@ -9,12 +9,12 @@ $this->layout('template', ['title' => $tapahtuma['nimi']]) ?>
   $saleEnd = new DateTime($tapahtuma['myynti_loppuu']);
 ?>
 <div class="tapahtumanTiedot">
-<h2><?=$tapahtuma['nimi']?></h2>
-<div><p>Paikkakunta: <?=$tapahtuma['paikkakunta']?></p></div><br>
-<div><p><?=nl2br($tapahtuma['kuvaus'])?></p></div><br>
-<div><p>Alkaa: <?=$start->format('j.n.Y G:i')?></p></div>
-<div><p>Loppuu: <?=$end->format('j.n.Y G:i')?></p></div>
-<div><p>Lippujen myynti: <?=$saleStart->format('j.n.Y') . "-" . $saleEnd->format('j.n.Y')?></p></div>
+<h2><?=htmlspecialchars($tapahtuma['nimi'])?></h2>
+<div><p>Paikkakunta: <?=htmlspecialchars($tapahtuma['paikkakunta'])?></p></div><br>
+<div><p><?=nl2br(htmlspecialchars($tapahtuma['kuvaus']))?></p></div><br>
+<div><p>Alkaa: <?=htmlspecialchars($start->format('j.n.Y G:i'))?></p></div>
+<div><p>Loppuu: <?=htmlspecialchars($end->format('j.n.Y G:i'))?></p></div>
+<div><p>Lippujen myynti: <?=htmlspecialchars($saleStart->format('j.n.Y')) . "-" . htmlspecialchars($saleEnd->format('j.n.Y'))?></p></div>
 </div>
 
 <form class="ostoTiedot" action=<?=BASEURL . "/tilaa"?> method="post">

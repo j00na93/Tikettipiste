@@ -1,6 +1,6 @@
 <?php $this->layout('template', ['title' => 'Uuden tilin luonti']) ?>
 
-<h1>Uuden tilin luonti</h1>
+<h1 id="uusiTiliOtsikko">Uuden tilin luonti</h1>
 
 <form action="" method="POST">
   <div>
@@ -28,6 +28,6 @@
     <input type="password" name="salasana2">
   </div>
   <div>
-    <input type="submit" name="laheta" value"tilaa">
+    <input type="submit" name="laheta" value="Luo tili">
   </div>
 </form>

@@ -1,7 +1,8 @@
 <?php $this->layout('template', ['title' => 'Ylläpitosivut.']) ?>
-
-<h1> Ylläpitosivut</h1>
-<h2>lisää tapahtuma</h2>
+<div class="yllapitosivu">
+    <h1> Ylläpitosivut</h1>
+    <h2>lisää tapahtuma</h2>
+</div>
 
 <div>    
     <form class="lisaaTapahtuma" action="" method="post">

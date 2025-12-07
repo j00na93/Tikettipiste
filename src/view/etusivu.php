@@ -12,9 +12,9 @@
             $start = new DateTime($tapahtuma['tap_alkaa']);
 
             echo "<div class='suositutTapahtumat'>";
-            echo "<div><h2>$tapahtuma[nimi]</h2></div>";
-            echo "<div><p>" . $start->format('j.n.Y') . "</p></div>";
-            echo "<div><p>$tapahtuma[paikkakunta]</p></div><br>";
+            echo "<div><h2>". htmlspecialchars($tapahtuma['nimi']) . "</h2></div>";
+            echo "<div><p>" . htmlspecialchars($start->format('j.n.Y')) . "</p></div>";
+            echo "<div><p>" . htmlspecialchars($tapahtuma['paikkakunta']) . "</p></div><br>";
             echo "</div>";
         } ?>
     </div>
@@ -25,9 +25,9 @@
             $start = new DateTime($tapahtuma['tap_alkaa']);
 
             echo "<div class='uudetTapahtumat'>";
-            echo "<div><h2>$tapahtuma[nimi]</h2></div>";
-            echo "<div><p>" . $start->format('j.n.Y') . "</p></div>";
-            echo "<div><p>$tapahtuma[paikkakunta]</p></div><br>";
+            echo "<div><h2>". htmlspecialchars($tapahtuma['nimi']) . "</h2></div>";
+            echo "<div><p>" . htmlspecialchars($start->format('j.n.Y')) . "</p></div>";
+            echo "<div><p>" . htmlspecialchars($tapahtuma['paikkakunta']) . "</p></div><br>";
             echo "</div>";
         }
         ?>
