@@ -1,7 +1,7 @@
 <?php $this->layout('template', ['title' => 'Etusivu']) ?>
 
-<div class="etusivu" id="iso_kuva">
-<img src="<?= BASEURL ?>/public/images/etusivu_iso.jpg" alt="Etusivun kuva"  style="width: 100%; height: auto;">
+<div class="etusivu_kuva">
+<img src="<?= BASEURL ?>/public/images/etusivu_iso.jpg" alt="Etusivun kuva">
 </div> 
 
 <div class="etusivu_alaosa">
