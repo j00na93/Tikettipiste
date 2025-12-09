@@ -112,7 +112,7 @@ case "/kirjaudu":
       // tarkastetaan riittävä varastotilanne 
 
       $varasto = varastotilanne($_POST['idtapahtuma']);
-      $varastoaJaljella = varastoaJaljella($_GET['id']);
+      $varastoaJaljella = varastoaJaljella($_POST['idtapahtuma']);
       $error = [];
 
       if ($varastoaJaljella == 0) {

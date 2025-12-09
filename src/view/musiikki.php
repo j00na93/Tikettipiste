@@ -7,6 +7,7 @@
 
 foreach ($tapahtumat as $tapahtuma) {
 
+  $aika = new datetime();
   $start = new DateTime($tapahtuma['tap_alkaa']);
   $end = new DateTime($tapahtuma['tap_loppuu']);
   $saleStart = new DateTime($tapahtuma['myynti_alkaa']);
@@ -14,7 +15,7 @@ foreach ($tapahtumat as $tapahtuma) {
   $style = "font_" . $tapahtuma['genre'];
   
 
-
+    if ($start > $aika) {
     echo "<div class='tapahtuma'>";
     echo "<div><h2 class='" .htmlspecialchars($style) . "'>"
     . htmlspecialchars($tapahtuma['nimi'])
@@ -26,6 +27,7 @@ foreach ($tapahtumat as $tapahtuma) {
     echo "<div> hinta: " . htmlspecialchars($tapahtuma['hinta']) . "€" . "</div>";
     echo "<div><a href='tapahtuma?id=" . htmlspecialchars($tapahtuma['idtapahtuma']) . "'>TIEDOT</a></div>";
     echo "</div>";
+    }
 
 }
 
