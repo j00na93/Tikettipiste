@@ -20,4 +20,27 @@
     return DB::run('SELECT * FROM tapahtumat WHERE idtapahtuma = ?;',[$id])->fetch();
   }
 
+  function formatDateTimeLocal($aika) {
+    return str_replace('T', ' ', $aika) . ':00';
+  }
+
+  function lisaaTapahtuma($nimi,$genre,$category,$paikkakunta,$tapAlkaa,$tapLoppuu,$mAlkaa,$mLoppuu,$hinta,$varasto,$alkuvarasto,$kuvaus) {
+  DB::run('INSERT INTO tapahtumat (nimi,genre,category_id,paikkakunta,tap_alkaa,tap_loppuu,myynti_alkaa,myynti_loppuu,hinta,varasto,alkuvarasto,kuvaus)
+  VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', [$nimi,$genre,$category,$paikkakunta,$tapAlkaa,$tapLoppuu,$mAlkaa,$mLoppuu,$hinta,$varasto,$alkuvarasto,$kuvaus]); }  
+
+
+  function uudetTapahtumat() {
+    return DB::run('SELECT nimi, tap_alkaa, paikkakunta, idtapahtuma
+    FROM tapahtumat
+    ORDER BY luotu DESC
+    LIMIT 3;')->fetchAll();
+}
+
+function suositutTapahtumat() {
+  return DB::run('SELECT nimi, tap_alkaa, paikkakunta, idtapahtuma FROM tapahtumat
+  ORDER BY alkuvarasto - varasto DESC LIMIT 3;')->fetchAll();
+}
+
+
+
 ?>
