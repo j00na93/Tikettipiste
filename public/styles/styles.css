@@ -178,7 +178,7 @@ input[type=submit] {
 }
 .error {
   color: red;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .tili_luotu {
     border: 2px #2b2b2b solid;
@@ -190,15 +190,6 @@ input[type=submit] {
     text-align: center;
 }
 
-#kirjaudu_painike {
-    padding: 14px 27px;
-    color: #b3b3b3;
-    background-color: #534b4b;
-    margin-left: 42%;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;    
-}
 
 #tili_luotu_otsikko {
     margin-top: 2em;
@@ -293,13 +284,23 @@ input[type=submit] {
 .uudetTapahtumat, .suositutTapahtumat {
     max-height: 9vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr auto;
     padding: 2rem;
-    gap: 2rem;
+    gap: 1rem;
+    
 }
 
 .uudetTapahtumat p, .suositutTapahtumat p {
     font-size: 1.4rem;
+}
+
+.uudetTapahtumat a, .suositutTapahtumat a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    border: 0.7px #2b2b2b solid;
+    border-radius: 1px;
+    padding: 1.5px;
 }
 
 /* lippujen saatavuuden määrityspallo */
@@ -310,6 +311,7 @@ input[type=submit] {
   border-radius: 50%;
   display: inline-block;
   margin-left: 0.2rem;
+  align-self: center;
   
 }
 
@@ -320,6 +322,7 @@ input[type=submit] {
   border-radius: 50%;
   display: inline-block;
   margin-left: 0.2rem;
+  
 }
 
 .loppu {
@@ -329,19 +332,31 @@ input[type=submit] {
   border-radius: 50%;
   display: inline-block;
   margin-left: 0.2rem;
+  align-self: center;
 }
+
+
+/* yksittäisen tapahtuman tiedot */
 
 .tapahtumanTiedot {
     height: 30vh;
+    margin: 1rem 2rem 0 2rem ;
 }
-/* yksittäisen tapahtuman tiedot */
+
 .tapahtumanTiedot h2 {
     font-family: 'Inter', sans-serif;
     text-align: center;
+    
+}
+
+.tapahtumanTiedot input[type=number]{
+    margin: 1px 3px ;
 }
 
 .tapahtumanTiedot p {
     font-size: 1.3rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
 }
 
 .ostoTiedot button {
@@ -352,6 +367,7 @@ input[type=submit] {
 
 .tapahtuma {
     border-bottom: 1px solid #555;
+    margin:0 2rem;
 }
 
 .tapahtuma p {
@@ -362,15 +378,39 @@ input[type=submit] {
 }
 .tapahtuma a {
     display: block;
-    width: 3.5rem;
-    margin-top: 0.5rem;
+    width: 5rem;
+    text-align: center;
+    margin: 0.5rem 0; 
     font-size: 1.3rem;
     text-decoration: none;
     color: rgb(0, 0, 0);
+    border: 1px #2b2b2b solid;
+    border-radius: 2px;
 }
+
+
 .tapahtuma h2 {
     text-align: center;
 }
+
+.saatavuus{
+    display: flex;
+    flex-direction:row;
+    border: 1px #2b2b2b solid;
+    width:8rem;
+    height: 2rem;
+    padding: 2px;
+    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    
+}
+
+.saatavuus p {
+    margin-bottom: 3px;
+}
+
 
 
 /* Mobiilimääritykset  */
@@ -420,12 +460,17 @@ body {
 .profile {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     width: 100%;
 }
 
 .profile_buttons {
     width: 100%;
+}
+
+#kirjaudu {
+    min-width: 100%;
+    font-size: 0.9rem;
 }
 
 .profile a {
@@ -444,26 +489,52 @@ body {
  }
 
 .uudetTapahtumat, .suositutTapahtumat {
-     grid-template-columns: 1fr 1fr 1fr;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
      gap: 1rem;
-    padding: 1rem;
+    padding: 0.7rem;
 }
-.uudetTapahtumat p, 
-.suositutTapahtumat p,
+
 .uudetTapahtumat h2, 
 .suositutTapahtumat h2 {
     font-size: 0.7rem;
     text-align: center;
-  } 
+  }
+  
+.uudetTapahtumat a, 
+.suositutTapahtumat a {
+    color: #000;
+    border: 0.7px #2b2b2b solid;
+    border-radius: 1px;
+    font-size: 0.9rem;
+    padding: 1.5px;
+}
+
+  .uudetTapahtumat p, 
+.suositutTapahtumat p {
+    font-size: 0.9rem;
+    text-align: center; 
+}
 /*  Yksittäisen tapahtuman tiedot */
 .tapahtumanTiedot {
     height: auto;
+}
+
+.tapahtumanTiedot button[type=submit] {
+    margin-top: 3px;
 }
 
 .tapahtumanTiedot p {
     font-size: 1rem;
     margin-top: 1rem;
     line-height: 1.6;
+}
+
+.saatavuus {
+    margin-bottom: 0.5rem;
+}
+
+.saatavuus p {
+    margin-bottom: 1rem;
 }
 
 /* Tapahtuma-lista*/
@@ -494,4 +565,5 @@ body {
 .lisaaTapahtuma input[type=submit] {
     height: 2.5rem;
 }
+
 }

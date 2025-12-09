@@ -30,14 +30,14 @@
 
 
   function uudetTapahtumat() {
-    return DB::run('SELECT nimi, tap_alkaa, paikkakunta
+    return DB::run('SELECT nimi, tap_alkaa, paikkakunta, idtapahtuma
     FROM tapahtumat
     ORDER BY luotu DESC
     LIMIT 3;')->fetchAll();
 }
 
 function suositutTapahtumat() {
-  return DB::run('SELECT nimi, tap_alkaa, paikkakunta FROM tapahtumat
+  return DB::run('SELECT nimi, tap_alkaa, paikkakunta, idtapahtuma FROM tapahtumat
   ORDER BY alkuvarasto - varasto DESC LIMIT 3;')->fetchAll();
 }
 

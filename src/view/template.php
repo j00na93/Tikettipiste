@@ -27,7 +27,7 @@
             echo "<p id='session_id'>$_SESSION[user]</p>";
     
           } else {
-            echo "<a href='kirjaudu'>Kirjaudu</a>";
+            echo "<a id='kirjaudu' href='kirjaudu'>Kirjaudu</a>";
           }
         ?></div></div></li>
       

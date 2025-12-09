@@ -15,15 +15,28 @@ $this->layout('template', ['title' => $tapahtuma['nimi']]) ?>
 <div><p>Alkaa: <?=htmlspecialchars($start->format('j.n.Y G:i'))?></p></div>
 <div><p>Loppuu: <?=htmlspecialchars($end->format('j.n.Y G:i'))?></p></div>
 <div><p>Lippujen myynti: <?=htmlspecialchars($saleStart->format('j.n.Y')) . "-" . htmlspecialchars($saleEnd->format('j.n.Y'))?></p></div>
-</div>
+
 
 <form class="ostoTiedot" action=<?=BASEURL . "/tilaa"?> method="post">
   <input type="hidden" name="idtapahtuma" value="<?=$tapahtuma['idtapahtuma']?>">
 
-  <label for="maara">Määrä</label>
-  <input type="number" name="maara" min="1" required>
-
-  <button type="submit">Tilaa</button>
-  <span class="<?=$saatavuusluokka?>"></span>
-</form>
+  <?php if (isset($_SESSION['user'])) {
+  echo "<label for='maara'>Määrä</label>";
+  echo "<input type='number' name='maara' min='1' required>";
+  echo "<button type='submit'>Tilaa</button>";
+  echo "<div class='saatavuus'>";
+  echo "<p>Saatavuus: </p>";
+  echo "<span class=$saatavuusluokka></span>";
+  echo "</div>";
+} else {
+  echo "<div class='saatavuus'>";
+  echo "<p>Saatavuus: </p>";
+  echo "<span class=$saatavuusluokka></span>";
+  echo "</div>";  
+}
+  ?>
   <div class="error"><?= getValue($error,'maara'); ?></div>
+</div>
+
+</form>
+  

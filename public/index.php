@@ -112,7 +112,14 @@ case "/kirjaudu":
       // tarkastetaan riittävä varastotilanne 
 
       $varasto = varastotilanne($_POST['idtapahtuma']);
+      $varastoaJaljella = varastoaJaljella($_GET['id']);
       $error = [];
+
+      if ($varastoaJaljella == 0) {
+        $saatavuusluokka = "loppu";  
+      } elseif ($varastoaJaljella < 0.25) {
+        $saatavuusluokka = "vahissa";
+      } else {$saatavuusluokka = "paljon";}
 
       if ($_POST['maara'] > $varasto){
         $error ['maara'] = "lippuja ei ole tarpeeksi";
@@ -121,10 +128,10 @@ case "/kirjaudu":
          $tapahtuma = haeTapahtuma($_POST['idtapahtuma']);
         echo $templates->render('tapahtuma', [
                                'tapahtuma' => $tapahtuma,
-                                'error' => $error]);
+                                'error' => $error,
+                                'saatavuusluokka' =>$saatavuusluokka]);
         break;
       }
-
 
       // luodaan tilaus
       $tilaus_id = luoTilaus($loggeduser['idhenkilo'], $_POST['idtapahtuma']);

@@ -14,7 +14,8 @@
             echo "<div class='suositutTapahtumat'>";
             echo "<div><h2>". htmlspecialchars($tapahtuma['nimi']) . "</h2></div>";
             echo "<div><p>" . htmlspecialchars($start->format('j.n.Y')) . "</p></div>";
-            echo "<div><p>" . htmlspecialchars($tapahtuma['paikkakunta']) . "</p></div><br>";
+            echo "<div><p>" . htmlspecialchars($tapahtuma['paikkakunta']) . "</p></div>";
+            echo " <div><a href='tapahtuma?id=" . htmlspecialchars($tapahtuma['idtapahtuma']) . "'>TIEDOT</a></div>";
             echo "</div>";
         } ?>
     </div>
@@ -27,7 +28,8 @@
             echo "<div class='uudetTapahtumat'>";
             echo "<div><h2>". htmlspecialchars($tapahtuma['nimi']) . "</h2></div>";
             echo "<div><p>" . htmlspecialchars($start->format('j.n.Y')) . "</p></div>";
-            echo "<div><p>" . htmlspecialchars($tapahtuma['paikkakunta']) . "</p></div><br>";
+            echo "<div><p>" . htmlspecialchars($tapahtuma['paikkakunta']) . "</p></div>";
+            echo " <div><a href='tapahtuma?id=" . htmlspecialchars($tapahtuma['idtapahtuma']) . "'>TIEDOT</a></div>";
             echo "</div>";
         }
         ?>
