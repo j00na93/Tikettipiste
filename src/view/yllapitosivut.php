@@ -15,8 +15,10 @@
             <input type="text" name="genre">
         </div>
         <div>
-            <label for ="category"> Category_id: </label>
-            <input type="number" name="category">
+            <select name="category">
+                <option value="1">Musiikki</option>
+                <option value="2">Urheilu</option>
+            </select>
         </div>
         <div>
             <label for ="paikkakunta"> Paikkakunta: </label>

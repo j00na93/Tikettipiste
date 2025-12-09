@@ -230,15 +230,17 @@ input[type=submit] {
 
 .yllapitosivu {
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .yllapitosivu h2 {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    
 }
 
 .lisaaTapahtuma {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1.2rem 2rem;
      max-width: 45vw;
      margin: 1rem auto;
@@ -246,7 +248,8 @@ input[type=submit] {
 }
 
 .lisaaTapahtuma input,  
-.lisaaTapahtuma textarea {
+.lisaaTapahtuma textarea,
+.lisaaTapahtuma select {
     font-size: 14px;
     border-radius: 4px;
     padding: 8px;
@@ -254,6 +257,12 @@ input[type=submit] {
 .lisaaTapahtuma input[type=submit] {
     width: 5rem;
     height: 3rem;
+    grid-column-start: 3;
+    
+}
+
+.lisaaTapahtuma select {
+      margin-top: 1.1rem;
 }
 
 /* Etusivun alaosan määritykset */
@@ -564,6 +573,11 @@ body {
 }
 .lisaaTapahtuma input[type=submit] {
     height: 2.5rem;
+    grid-column-start: 1;
+}
+
+.yllapitosivu {
+    font-size: 1rem;
 }
 
 }
