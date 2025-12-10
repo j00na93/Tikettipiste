@@ -1,6 +1,6 @@
 # 🎟️ Tikettipiste – Projektin README
 
-Tikettipiste on palvelu, joka mahdollistaa tapahtumien selaamisen ja lippujen ostamisen. Tämä pohjautuu aiempaan tapahtumapalvelu-projektiin, jota lähdin jatkamaan pidemmälle.
+Tikettipiste on palvelu, joka mahdollistaa tapahtumien selaamisen ja lippujen ostamisen. Tämä pohjautuu aiempaan tapahtumapalvelu-projektiin, jota lähdin jatkamaan pidemmälle. 
 
 # 🛠️ Ominaisuudet
 - Tapahtumien selaus
@@ -27,7 +27,7 @@ Tikettipiste on palvelu, joka mahdollistaa tapahtumien selaamisen ja lippujen os
 
 - Näkymä
  - Näytön kuvan skaalaus sekoittaa sivuston ulkoasun (Toimiva: 100%)
--Toiminta
- - Tarkoituksena muuttaa etusivun SQL- tulostusta, että vanhat tapahtumat jätetään huomiotta
- - Ylläpitosivulle myytyjen lippujen tilastot
+- Toiminta
+  - Tarkoituksena muuttaa etusivun SQL- tulostusta, että vanhat tapahtumat jätetään huomiotta
+  - Ylläpitosivulle myytyjen lippujen tilastot
   
